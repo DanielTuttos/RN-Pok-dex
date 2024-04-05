@@ -17,11 +17,10 @@ export const getPokemons = async (
       return pokeApi.get<PokeAPIPokemon>(info.url);
     });
     const pokeApiPokemons = await Promise.all(pokemonPromeses);
-    const pokemons = pokeApiPokemons.map(item =>
+    const pokemonsPromises = pokeApiPokemons.map(item =>
       PokemonMapper.pokeApiPokemonToEntity(item.data),
     );
-    console.log('pokemons: ', pokemons[0]);
-    return pokemons;
+    return await Promise.all(pokemonsPromises);
   } catch (error) {
     console.log({error});
     throw new Error('Error getting pokemons');
