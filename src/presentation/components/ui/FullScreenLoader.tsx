@@ -9,7 +9,7 @@ export const FullScreenLoader = () => {
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: colors.background,
+        // backgroundColor: colors.background,
       }}>
       <ActivityIndicator size={50} />
     </View>
